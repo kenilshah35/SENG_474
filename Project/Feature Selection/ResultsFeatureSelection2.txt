@@ -1,0 +1,72 @@
+# Drop rows with  nan values / Include features computed on songs from english speaking countries only
+xcols = ['Explicit_false','Explicit_true','danceability','energy','key','loudness','mode','speechiness','acoustics','instrumentalness','liveliness','valence','tempo','duration_ms','time_signature','syuzhet_norm','bing_norm_negative','bing_norm_neutral','bing_norm_positive','afinn_norm','nrc_norm','n_words','anger_norm2','anticipation_norm2','disgust_norm2','fear_norm2','joy_norm2','sadness_norm2','surprise_norm2','trust_norm2','negative_norm2','positive_norm2','negative_bog_jr','positive_bog_jr','Negative_Bayes','Neutral_Bayes','Positive_Bayes','Celebrate','Desire','Explore','Fun','Hope','Love','Nostalgia','Thug','Popu_max','Top10_dummy','Top50_dummy']
+3100 rows
+1491 feature vector length
+
+1) Baseline
+['Decision Trees', 'Random Forests', 'K nearest neighbors', 'Logistic Regression', 'SVM']
+[0.3326612903225806, 0.2943548387096774, 0.41491935483870956, 0.31612903225806455, 0.21451612903225814]
+[0.3451612903225807, 0.3016129032258065, 0.4419354838709677, 0.2983870967741935, 0.1919354838709677]
+Wall time: 35.1 s
+
+2) Tree based
+134 feature vector length
+['Decision Trees', 'Random Forests', 'K nearest neighbors', 'Logistic Regression', 'SVM']
+[0.35806451612903223, 0.282258064516129, 0.4193548387096774, 0.3217741935483871, 0.2338709677419355]
+[0.3709677419354839, 0.27903225806451615, 0.4419354838709677, 0.30483870967741933, 0.2129032258064516]
+Wall time: 5.31 s
+
+3) RFE
+Optimal number of features : 1021
+Wall time: 3min 55s
+
+['Decision Trees', 'Random Forests', 'K nearest neighbors', 'Logistic Regression', 'SVM']
+[0.2887096774193548, 0.21935483870967742, 0.32096774193548394, 0.3189516129032258, 0.21572580645161288]
+[0.26290322580645165, 0.20322580645161292, 0.3129032258064516, 0.32258064516129037, 0.20483870967741935]
+Wall time: 8.18 s
+
+numeric features included by rfe = ['Explicit_false', 'Explicit_true', 'danceability', 'energy', 'loudness', 'speechiness', 'valence', 'Thug']
+
+4) F measures
+['Decision Trees', 'Random Forests', 'K nearest neighbors', 'Logistic Regression', 'SVM']
+[0.3375, 0.28346774193548396, 0.3911290322580645, 0.3245967741935484, 0.22419354838709682]
+[0.282258064516129, 0.2338709677419355, 0.3354838709677419, 0.2661290322580645, 0.15161290322580645]
+[1281, 51, 41, 1021, 851]
+Wall time: 45min 17s
+
+numeric features included for svm only = ['Explicit_false', 'Explicit_true', 'danceability', 'energy', 'key', 'loudness', 'mode', 'speechiness', 'acoustics', 'instrumentalness', 'liveliness', 'valence', 'tempo', 'duration_ms', 'time_signature', 'syuzhet_norm', 'bing_norm_negative', 'bing_norm_neutral', 'bing_norm_positive', 'afinn_norm', 'nrc_norm', 'n_words', 'anger_norm2', 'anticipation_norm2', 'disgust_norm2', 'fear_norm2', 'joy_norm2', 'sadness_norm2', 'surprise_norm2', 'trust_norm2', 'negative_norm2', 'positive_norm2', 'negative_bog_jr', 'positive_bog_jr', 'Negative_Bayes', 'Neutral_Bayes', 'Positive_Bayes', 'Celebrate', 'Desire', 'Explore', 'Fun', 'Hope', 'Love', 'Nostalgia', 'Thug', 'Popu_max', 'Top10_dummy', 'Top50_dummy']
+It included all the numeric features i.e. xcols
+
+# Drop columns with nan values/ Don't include computed on songs from english speaking countries
+xcols = ['Explicit_false','Explicit_true','danceability','energy','key','loudness','mode','speechiness','acoustics','instrumentalness','liveliness','valence','tempo','duration_ms','time_signature','bing_norm_negative','bing_norm_neutral','bing_norm_positive','Popu_max','Top10_dummy','Top50_dummy']
+5423 rows
+2594 feature vector length
+
+1) Baseline
+['Decision Trees', 'Random Forests', 'K nearest neighbors', 'Logistic Regression', 'SVM']
+[0.3745887349247099, 0.2842286819851281, 0.4239280531947124, 0.33263703963558855, 0.22705579385454377]
+[0.3447004608294931, 0.2737327188940092, 0.43963133640553, 0.3152073732718894, 0.19723502304147467]
+Wall time: 1min
+
+2) Tree based
+260 feature vector length
+['Decision Trees', 'Random Forests', 'K nearest neighbors', 'Logistic Regression', 'SVM']
+[0.40040688001955993, 0.29621370369779787, 0.42230903746697923, 0.33494251590579316, 0.2411182689394542]
+[0.3705069124423963, 0.2792626728110599, 0.43317972350230416, 0.3244239631336405, 0.2211981566820277]
+Wall time: 8.39 s
+
+3) RFE
+Optimal number of features : 1794
+Wall time: 10min 30s
+
+['Decision Trees', 'Random Forests', 'K nearest neighbors', 'Logistic Regression', 'SVM']
+[0.36860193792887175, 0.2611757796097567, 0.392339440520041, 0.3397814913441658, 0.23212757588804023]
+[0.3354838709677419, 0.23225806451612907, 0.38341013824884795, 0.31981566820276497, 0.2009216589861751]
+Wall time: 41.8 s
+
+4) F measures
+['Decision Trees', 'Random Forests', 'K nearest neighbors', 'Logistic Regression', 'SVM']
+[0.36929823162661646, 0.2872307177140305, 0.4163288844949744, 0.3367882257267233, 0.233982321581384]
+[0.31612903225806455, 0.24147465437788018, 0.37419354838709673, 0.29308755760368665, 0.19170506912442398]
+[2101, 1981, 41, 1291, 1101]
+Wall time: 3h 19min 10s

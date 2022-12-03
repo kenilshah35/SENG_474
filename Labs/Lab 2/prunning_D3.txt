@@ -1,0 +1,36 @@
+from sklearn.datasets import load_digits
+from sklearn.tree import DecisionTreeClassifier
+# from sklearn.neural_network import MLPClassifier
+# from sklearn.model_selection import train_test_split
+# from sklearn.model_selection import GridSearchCV
+# from sklearn import preprocessing
+# import numpy as np
+
+# images = load_digits()
+X_digits, y_digits = load_digits(return_X_y=True)
+trainData,testData,trainLabel,testLabel =train_test_split(X_digits,y_digits,test_size=0.2)
+
+
+d3 = DecisionTreeClassifier()
+d3.fit(trainData,trainLabel)
+
+keys_d = d3.cost_complexity_pruning_path(trainData,trainLabel)['ccp_alphas']
+i =0
+trainAccuracy = []
+testAccuracy = []
+for alpha in keys_d:
+#     print(alpha)
+#     i  = i+1
+#     if i == 1:
+#         continue
+    d_3Temp = DecisionTreeClassifier(ccp_alpha=alpha)
+    d_3Temp.fit(trainData,trainLabel)
+    
+    trainAccuracy.append( d_3Temp.score(trainData, trainLabel))
+    Prediction = d_3Temp.predict(testData)
+    testAccuracy.append(d_3Temp.score(testData, testLabel))
+#     print(d_3Temp.score(testData, testLabel))
+
+plt.plot(keys_d,trainAccuracy)   
+plt.plot(keys_d,testAccuracy)   
+

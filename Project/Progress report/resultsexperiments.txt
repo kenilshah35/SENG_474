@@ -1,0 +1,55 @@
+1) normalize x(preprocessing-minmax) , didnt normalize y, no label encoder for y
+
+Dt
+Training Error: 8.249340052790544e-05
+Test Error: 0.4629090800011999
+RF
+Training Error: 0.4858411327093832
+Test Error: 0.5375108738038816
+KNN
+Training Error: 0.3474172066234701
+Test Error: 0.49110597834238234
+SVM
+Training Error: 0.8295461363090952
+Test Error: 0.8291387947325795
+LR
+Training error: 0.8178395728341733
+Test error: 0.8184899661037286
+
+2) normalize(preprocessing-minmax) x , didnt normalize y, label encoder for y
+
+DT
+Training Error: 8.249340052790544e-05
+Test Error: 0.48951615322314546
+RF
+Training Error: 0.47625689944804417
+Test Error: 0.531271560128386
+KNN
+Training Error: 0.3477696784257259
+Test Error: 0.4934157242703303
+svm
+Training Error: 0.8291861651067914
+Test Error: 0.8295587485376609
+LR
+Training Error: 0.8228641708663307
+Test Error: 0.8228094909559949
+
+3) normalize(preprocessing - stdscalor) x, didnt normalize y, label encoder for y
+
+DT
+Training Error: 6.749460043198319e-05
+Test Error: 0.4548399676035636
+RF
+Training Error: 0.4976001919846412
+Test Error: 0.5497495275519693
+KNN
+Training Error: 0.3294936405087593
+Test Error: 0.4535201127875934
+SVM
+Training Error: 0.830033597312215
+Test Error: 0.8296187419383868
+LR
+Training Error: 0.8168496520278378
+Test Error: 0.8131805501394846
+
+

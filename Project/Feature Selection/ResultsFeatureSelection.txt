@@ -1,0 +1,105 @@
+# Fill nan values with 0
+xcols = ['Explicit_false','Explicit_true','danceability','energy','key','loudness','mode','speechiness','acoustics','instrumentalness','liveliness','valence','tempo','duration_ms','time_signature','syuzhet_norm','bing_norm_negative','bing_norm_neutral','bing_norm_positive','afinn_norm','nrc_norm','n_words','anger_norm2','anticipation_norm2','disgust_norm2','fear_norm2','joy_norm2','sadness_norm2','surprise_norm2','trust_norm2','negative_norm2','positive_norm2','negative_bog_jr','positive_bog_jr','Negative_Bayes','Neutral_Bayes','Positive_Bayes','Celebrate','Desire','Explore','Fun','Hope','Love','Nostalgia','Thug','Popu_max','Top10_dummy','Top50_dummy']
+5423 rows
+2621 feature vector length
+
+1) Baseline
+['Decision Trees', 'Random Forests', 'K nearest neighbors', 'Logistic Regression', 'SVM']
+[0.37368089550810835, 0.3112039502708105, 0.4386825698021144, 0.3238831395935984, 0.22337420736795666]
+[0.38341013824884795, 0.29308755760368665, 0.46728110599078343, 0.3299539170506912, 0.20829493087557605]
+Wall time: 1min 42s
+
+2) Tree based
+203 feature vector len
+['Decision Trees', 'Random Forests', 'K nearest neighbors', 'Logistic Regression', 'SVM']
+[0.40041937078436685, 0.3086707168635956, 0.4363781565757232, 0.3282639431484169, 0.23974136144021174]
+[0.4046082949308756, 0.2949308755760369, 0.46820276497695856, 0.3354838709677419, 0.2387096774193549]
+Wall time: 11.1 s
+
+3) RFE
+Optimal number of features : 1741
+Wall time: 18min 29s
+
+['Decision Trees', 'Random Forests', 'K nearest neighbors', 'Logistic Regression', 'SVM']
+[0.3517739543635291, 0.2538014446765424, 0.3805917433387018, 0.33194871876644405, 0.22959646856845206]
+[0.34838709677419355, 0.24055299539170505, 0.3695852534562212, 0.3262672811059908, 0.20829493087557605]
+Wall time: 32.8 s
+
+4) F measures
+['Decision Trees', 'Random Forests', 'K nearest neighbors', 'Logistic Regression', 'SVM']
+[0.3743705451820196, 0.3181190502766571, 0.42853581660368134, 0.33771307384433846, 0.23374978074721353]
+[0.31889400921658984, 0.26082949308755765, 0.3843317972350231, 0.2709677419354839, 0.1806451612903226]
+[2041, 2041, 181, 2231, 1681]
+Wall time: 3h 56min 12s
+
+# Drop rows with  nan values
+xcols = ['Explicit_false','Explicit_true','danceability','energy','key','loudness','mode','speechiness','acoustics','instrumentalness','liveliness','valence','tempo','duration_ms','time_signature','syuzhet_norm','bing_norm_negative','bing_norm_neutral','bing_norm_positive','afinn_norm','nrc_norm','n_words','anger_norm2','anticipation_norm2','disgust_norm2','fear_norm2','joy_norm2','sadness_norm2','surprise_norm2','trust_norm2','negative_norm2','positive_norm2','negative_bog_jr','positive_bog_jr','Negative_Bayes','Neutral_Bayes','Positive_Bayes','Celebrate','Desire','Explore','Fun','Hope','Love','Nostalgia','Thug','Popu_max','Top10_dummy','Top50_dummy']
+3100 rows
+1491 feature vector length
+
+1) Baseline
+['Decision Trees', 'Random Forests', 'K nearest neighbors', 'Logistic Regression', 'SVM']
+[0.33709677419354844, 0.303225806451613, 0.42943548387096775, 0.31411290322580654, 0.21330645161290318]
+[0.3080645161290323, 0.2564516129032258, 0.41290322580645167, 0.3080645161290323, 0.19516129032258067]
+Wall time: 36.2 s
+
+2) Tree based
+130 feature vector length
+['Decision Trees', 'Random Forests', 'K nearest neighbors', 'Logistic Regression', 'SVM']
+[0.36935483870967734, 0.28588709677419355, 0.4282258064516129, 0.3173387096774194, 0.22620967741935483]
+[0.34838709677419355, 0.24193548387096775, 0.4, 0.317741935483871, 0.23709677419354835]
+Wall time: 5.13 s
+
+3) RFE
+Optimal number of features : 951
+Wall time: 3min 47s
+
+['Decision Trees', 'Random Forests', 'K nearest neighbors', 'Logistic Regression', 'SVM']
+[0.282258064516129, 0.21693548387096784, 0.32016129032258067, 0.31653225806451624, 0.21693548387096784]
+[0.27903225806451615, 0.21612903225806457, 0.31129032258064515, 0.2935483870967742, 0.1967741935483871]
+Wall time: 7.72 s
+
+4) F measures
+['Decision Trees', 'Random Forests', 'K nearest neighbors', 'Logistic Regression', 'SVM']
+[0.34153225806451604, 0.28548387096774197, 0.3951612903225806, 0.3169354838709677, 0.2201612903225807]
+[0.26290322580645165, 0.2129032258064516, 0.3467741935483871, 0.2661290322580645, 0.15806451612903227]
+[1171, 71, 71, 1181, 581]
+Wall time: 45min 37s
+
+
+# Drop columns with nan values
+xcols = ['Explicit_false','Explicit_true','danceability','energy','key','loudness','mode','speechiness','acoustics','instrumentalness','liveliness','valence','tempo','duration_ms','time_signature','bing_norm_negative','bing_norm_neutral','bing_norm_positive','Popu_max','Top10_dummy','Top50_dummy']
+5423 rows
+2594 feature vector length
+
+1) Baseline
+['Decision Trees', 'Random Forests', 'K nearest neighbors', 'Logistic Regression', 'SVM']
+[0.3745887349247099, 0.2842286819851281, 0.4239280531947124, 0.33263703963558855, 0.22705579385454377]
+[0.3447004608294931, 0.2737327188940092, 0.43963133640553, 0.3152073732718894, 0.19723502304147467]
+Wall time: 1min
+
+2) Tree based
+260 feature vector length
+['Decision Trees', 'Random Forests', 'K nearest neighbors', 'Logistic Regression', 'SVM']
+[0.40040688001955993, 0.29621370369779787, 0.42230903746697923, 0.33494251590579316, 0.2411182689394542]
+[0.3705069124423963, 0.2792626728110599, 0.43317972350230416, 0.3244239631336405, 0.2211981566820277]
+Wall time: 8.39 s
+
+3) RFE
+Optimal number of features : 1794
+Wall time: 10min 30s
+
+['Decision Trees', 'Random Forests', 'K nearest neighbors', 'Logistic Regression', 'SVM']
+[0.36860193792887175, 0.2611757796097567, 0.392339440520041, 0.3397814913441658, 0.23212757588804023]
+[0.3354838709677419, 0.23225806451612907, 0.38341013824884795, 0.31981566820276497, 0.2009216589861751]
+Wall time: 41.8 s
+
+4) F measures
+['Decision Trees', 'Random Forests', 'K nearest neighbors', 'Logistic Regression', 'SVM']
+[0.36929823162661646, 0.2872307177140305, 0.4163288844949744, 0.3367882257267233, 0.233982321581384]
+[0.31612903225806455, 0.24147465437788018, 0.37419354838709673, 0.29308755760368665, 0.19170506912442398]
+[2101, 1981, 41, 1291, 1101]
+Wall time: 3h 19min 10s
+
+
+

@@ -1,0 +1,84 @@
+
+xcols = ['Title', 'Artist', 'Explicit', 'danceability', 'energy', 'loudness', 'liveliness', 'valence', 'tempo', 'duration_ms', 'acoustics']
+ycols = ['Genre_new']
+country = 'global'
+
+1) no preprocessing, laber encoder for x and y
+DT
+Training Error: 0.0
+Test Error: 0.33732718894009217
+Wall time: 46 ms
+
+RF (max_depth = 12)
+Training Error: 0.13923467035500225
+Test Error: 0.3972350230414746
+Wall time: 888 ms
+
+KNN
+Training Error: 0.4449054863992623
+Test Error: 0.631336405529954
+Wall time: 165 ms
+
+SVM
+no output for an hour
+
+LR (sag solver)
+convergence after 9512 epochs took 26 seconds
+Training error: 0.582295988934993
+Test accuracy 0.40184331797235023
+
+LR (lbfgs solver)
+solver didnt converge
+
+
+2) Minmax preprocessing on x, label encoder x and y
+
+DT
+Training Error: 0.0
+Test Error: 0.3152073732718894
+
+RF
+Training Error: 0.0
+Test Error: 0.35391705069124424
+
+KNN
+Training Error: 0.39372982941447676
+Test Error: 0.5354838709677419
+
+LR(sag)
+Training Error: 0.5053019824804057
+Test Error: 0.5133640552995391
+
+LR(lbfgs)
+Training Error: 0.5053019824804057
+Test Error: 0.5133640552995391
+
+SVM
+Training Error: 0.5124481327800829
+Test Error: 0.5207373271889402
+
+3) standardscalor preprocessing on x, label encoder x and y
+
+DT
+Training Error: 0.0
+Test Error: 0.3354838709677419
+
+RF
+Training Error: 0.0
+Test Error: 0.3640552995391705
+
+KNN
+Training Error: 0.3886583679114799
+Test Error: 0.5612903225806452
+
+LR(sag)
+Training Error: 0.5016136468418626
+Test Error: 0.5188940092165899
+
+LR(lbfgs)
+Training Error: 0.5016136468418626
+Test Error: 0.5188940092165899
+
+SVM
+Training Error: 0.5156754264638082
+Test Error: 0.5299539170506913
